@@ -1,0 +1,137 @@
+
+/* Pie Chart Component */
+.pie-chart-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.pie-chart-wrapper {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.pie-chart-circle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #e2e8f0;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+}
+
+.pie-slice {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: 50% 50%;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+/* The visual part of the slice */
+.pie-slice::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    background: var(--slice-color);
+    transform-origin: 0% 100%;
+    transform: skewY(0deg); /* Placeholder, actually handled by main skew in JS parent */
+    opacity: 0.6;
+    transition: opacity 0.2s;
+    /* We need to fill the skewed parent.
+       Actually, standard CSS pie charts with multiple divs are tricky.
+       Simpler approach: Conic gradient is great for static, but interactivity?
+       Let's stick to the rotate/skew method. 
+       The parent .pie-slice is rotated and skewed.
+       We need a child to unskew the content, but the background color?
+       
+       Actually, common method:
+       Slice is 50% width, 50% height, bottom-right anchor?
+       
+       Let's try a robust method: Central point, large divs masked?
+       
+       Alternative: SVG is WAY easier for this.
+       But I am committed to HTML/CSS/JS generation.
+       
+       Let's refine the JS generation to use conic-gradient? No, click detection is hard.
+       
+       Let's use the transform: rotate() skew() method on a top-left origin div.
+    */
+    /* Correcting the slice logic */
+    width: 100%;
+    height: 100%;
+    transform-origin: 50% 50%;
+    background: radial-gradient(circle at center, transparent 30%, var(--slice-color) 30%);
+}
+
+/* Actually, let's use a simpler CSS trick for "sectors" */
+.pie-slice {
+    /* Each slice is a wedge. 
+       Origin: Bottom Right of a top-left quadrant? 
+       No, Center of circle.
+       
+       Let's assume the JS skew logic is correct for "sectors" 
+       if the element is rooted at center.
+    */
+    position: absolute;
+    top: 0; 
+    right: 0;
+    bottom: 50%;
+    left: 50%; /* Top Right Quadrant start */
+    transform-origin: 0% 100%; /* Bottom Left of this quadrant = Center of Circle */
+    background: var(--slice-color);
+    opacity: 0.4;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.pie-slice:hover {
+    opacity: 0.8;
+    transform: scale(1.05); /* This might break layout if not careful */
+    z-index: 10;
+}
+
+.pie-slice.active {
+    opacity: 1;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    z-index: 5;
+}
+
+.slice-number {
+    position: absolute;
+    left: 30px; /* Adjust based on skew */
+    bottom: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    pointer-events: none;
+}
+
+.pie-center-display {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--text-primary);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    z-index: 20;
+    pointer-events: none;
+}
