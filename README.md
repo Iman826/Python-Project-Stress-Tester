@@ -43,6 +43,47 @@ The Stress Tester collects personal health metrics through an interactive survey
 
 ---
 
+## Screenshots
+
+Main Page
+
+![Main](previews/preview-0)
+
+Question 1
+
+![Q1](previews/preview-1)
+
+Question 2
+
+![Q2](previews/preview-2)
+
+Question 3
+
+![Q3](previews/preview-3)
+
+Question 4
+
+![Q4](previews/preview-4)
+
+Question 5
+
+![Q5](previews/preview-5)
+
+Question 6
+
+![Q6](previews/preview-6)
+
+Question 7
+
+![Q7](previews/preview-7)
+
+Result Page
+
+![Result](previews/preview-8)
+
+
+---
+
 ## Project Structure
 
 ```
