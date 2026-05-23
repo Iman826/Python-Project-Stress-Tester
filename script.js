@@ -52,7 +52,7 @@ async function init() {
         startBtn.disabled = true;
         startBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Loading...';
 
-        const response = await fetch('http://127.0.0.1:5000/questions');
+        const response = await fetch('/questions');
         if (!response.ok) throw new Error('Failed to load questions');
 
         questions = await response.json();
@@ -220,7 +220,7 @@ async function submitSurvey() {
     try {
         nextBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Analyzing...';
 
-        const response = await fetch('http://127.0.0.1:5000/predict', {
+        const response = await fetch('/predict', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
@@ -309,4 +309,4 @@ function getRecommendation(level) {
 }
 
 // Initialize
-renderQuestion(); // Pre-render first question
+// Questions are rendered after they are loaded and when the survey starts.

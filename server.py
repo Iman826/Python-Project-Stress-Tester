@@ -97,8 +97,8 @@ def predict():
         # Base Score
         stress_score += 1
         
-        # Cap at 8 (High) or 10
-        final_level = min(max(stress_score, 1), 9) 
+        # Cap result on the 1–10 scale
+        final_level = min(max(stress_score, 1), 10)
         
         # Probabilities for Pie Chart
         # Create a distribution centered around the predicted level
