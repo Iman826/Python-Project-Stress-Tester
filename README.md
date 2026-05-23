@@ -8,6 +8,7 @@ A web-based stress level prediction tool that uses health and lifestyle data to 
 
 - [Overview](#overview)
 - [Features](#features)
+- [Screenshots](#screenshots)
 - [Project Structure](#project-structure)
 - [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
@@ -79,7 +80,7 @@ The Stress Tester collects personal health metrics through an interactive survey
 
 ### Result Page
 
-![Result](previews/preview-8.png)
+![Result](previews/preview-result.png)
 
 
 ---
