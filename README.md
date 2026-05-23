@@ -47,39 +47,39 @@ The Stress Tester collects personal health metrics through an interactive survey
 
 Main Page
 
-![Main](previews/preview-0)
+![Main](previews/preview-0.png)
 
 Question 1
 
-![Q1](previews/preview-1)
+![Q1](previews/preview-1.png)
 
 Question 2
 
-![Q2](previews/preview-2)
+![Q2](previews/preview-2.png)
 
 Question 3
 
-![Q3](previews/preview-3)
+![Q3](previews/preview-3.png)
 
 Question 4
 
-![Q4](previews/preview-4)
+![Q4](previews/preview-4.png)
 
 Question 5
 
-![Q5](previews/preview-5)
+![Q5](previews/preview-5.png)
 
 Question 6
 
-![Q6](previews/preview-6)
+![Q6](previews/preview-6.png)
 
 Question 7
 
-![Q7](previews/preview-7)
+![Q7](previews/preview-7.png)
 
 Result Page
 
-![Result](previews/preview-8)
+![Result](previews/preview-8.png)
 
 
 ---
